@@ -14,14 +14,14 @@ global.APIs = {
 
 // Apikey Website Api
 global.APIKeys = {
-	'https://zenzapi.xyz': 'Your Key',
+	'https://zenzapi.xyz': '7765c0c5354a',
 }
 
 // Other
-global.owner = ['6283167714830','6281382420312','6288292024190']
-global.premium = ['6288292024190']
-global.packname = 'Hisoka Morrow'
-global.author = 'WhatsApp Bot'
+global.owner = ['6288293524506','6288293524506','6288293524506']
+global.premium = ['6288293524506']
+global.packname = 'Fajarbot-Mdོ'
+global.author = 'F A J A R'
 global.sessionName = 'hisoka'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
@@ -40,7 +40,7 @@ global.limitawal = {
     premium: "Infinity",
     free: 100
 }
-global.thumb = fs.readFileSync('./lib/hisoka.jpg')
+global.thumb = fs.readFileSync('./lib/pajar.jpg')
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
