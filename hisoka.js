@@ -2023,7 +2023,9 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             	let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
-                anu = ` ${result.quotes}
+                anu = ` Qotes Hidup : ${result.quotes}
+
+
 ┌──⭓ *Group Menu*
 │
 │⭔ ${prefix}linkgroup
