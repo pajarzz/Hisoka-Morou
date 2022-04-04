@@ -2172,7 +2172,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                                     url: 'https://instagram.com/king_off_xzn'
                                 }
                             }, {
-                                callButton: {
+                                urlButton: {
                                     displayText: 'MyGithub ×፝֟͜×',
                                     url: 'Fajar472.github.io/'
                                 }
