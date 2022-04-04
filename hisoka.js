@@ -1,9 +1,3 @@
-/**
-   * Create By Dika Ardnt.
-   * Contact Me on wa.me/6288292024190
-   * Follow https://github.com/DikaArdnt
-*/
-
 require('./config')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
 const fs = require('fs')
@@ -2513,23 +2507,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 m.reply(respon)
             }
             break
-            case 'speedtest': {
-            m.reply('Testing Speed...')
-            let cp = require('child_process')
-            let { promisify } = require('util')
-            let exec = promisify(cp.exec).bind(cp)
-          let o
-          try {
-          o = await exec('python speed.py')
-          } catch (e) {
-          o = e
-         } finally {
-        let { stdout, stderr } = o
-        if (stdout.trim()) m.reply(stdout)
-        if (stderr.trim()) m.reply(stderr)
-            }
-            }
-            break
             case 'owner': case 'creator': {
                 hisoka.sendContact(m.chat, global.owner, m)
             }
@@ -2766,7 +2743,6 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 │⭔ ${prefix}listpc
 │⭔ ${prefix}listgc
 │⭔ ${prefix}listonline
-│⭔ ${prefix}speedtest
 │
 └───────⭓
 
@@ -2835,13 +2811,13 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 └───────⭓`
                 let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
-                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
+                                    displayText: 'Instagram',
+                                    url: 'https://instagram.com/king_off_xzn'
                                 }
                             }, {
                                 callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: '+62 882-9202-4190'
+                                    displayText: 'MyGithub ×፝֟͜×',
+                                    phoneNumber: 'Fajar472.github.io/'
                                 }
                             }, {
                                 quickReplyButton: {
