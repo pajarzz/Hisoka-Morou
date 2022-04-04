@@ -1,8 +1,3 @@
-/**
-   * Create By Dika Ardnt.
-   * Contact Me on wa.me/6288292024190
-   * Follow https://github.com/DikaArdnt
-*/
 
 require('./config')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = require('@adiwajshing/baileys')
@@ -696,6 +691,23 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 hisoka.sendMessage(m.chat, reactionMessage)
             }
             break  
+            case 'sticker': case 's': case 'stickergif': case 'sgif': {
+            if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
+            m.reply(mess.wait)
+                    if (/image/.test(mime)) {
+                let media = await quoted.download()
+                let encmedia = await hisoka.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                await fs.unlinkSync(encmedia)
+            } else if (/video/.test(mime)) {
+                if ((quoted.msg || quoted).seconds > 11) return m.reply('Maksimal 10 detik!')
+                let media = await quoted.download()
+                let encmedia = await hisoka.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                await fs.unlinkSync(encmedia)
+            } else {
+                throw `Kirim Gambar/Video Dengan Caption ${prefix + command}\nDurasi Video 1-9 Detik`
+                }
+            }
+            break
             case 'join': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw 'Masukkan Link Group!'
@@ -1108,13 +1120,13 @@ break
                     await sleep(1500)
                     let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
-                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
+                                    displayText: 'Instagram',
+                                    url: 'https://instagram.com/king_off_xzn'
                                 }
                             }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: '+62 882-9202-4190'
+                                urlButton: {
+                                    displayText: 'MyGithub ×፝֟͜×',
+                                    url: 'Fajar472.github.io/'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1147,13 +1159,13 @@ break
 		    await sleep(1500)
 		    let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
-                                    url: 'https://github.com/DikaArdnt/Hisoka-Morou'
+                                    displayText: 'Instagram',
+                                    url: 'https://instagram.com/king_off_xzn'
                                 }
                             }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: '+62 882-9202-4190'
+                                urlButton: {
+                                    displayText: 'MyGithub ×፝֟͜×',
+                                    url: 'Fajar472.github.io/'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1355,7 +1367,7 @@ break
 	    if (!/image/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
 	    if (/webp/.test(mime)) throw `Kirim/Reply Image Dengan Caption ${prefix + command}`
 	    let remobg = require('remove.bg')
-	    let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']
+	    let apirnobg = ['eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK','eTqs2o1NQwGhyCWnbrNbQDsK']
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
 	    hmm = await './src/remobg-'+getRandom('')
 	    localFile = await hisoka.downloadAndSaveMediaMessage(quoted, hmm)
@@ -2020,12 +2032,10 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'list': case 'menu': case 'help': case '?': {
-            	let { quotesAnime } = require('./lib/scraper')
+            	let  quotesAnime  = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
-                anu = ` Qotes Hidup : ${result.quotes}
-
-
+                anu = ` ${result.quotes}
 ┌──⭓ *Group Menu*
 │
 │⭔ ${prefix}linkgroup
@@ -2192,7 +2202,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                                     id: 'sc'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, image: { url: result }, btn)
                      }
             break
             default:
