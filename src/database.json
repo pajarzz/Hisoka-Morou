@@ -16,9 +16,9 @@
       "limit": 100
     },
     "6288293524506@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": "",
-      "limit": null
+      "afkTime": 99999999999999999999,
+      "afkReason": "Bahagia Sama Kamu",
+      "limit": 100
     },
     "6281273641266@s.whatsapp.net": {
       "afkTime": -1,
@@ -36,8 +36,8 @@
       "limit": 100
     },
     "6285770292764@s.whatsapp.net": {
-      "afkTime": -1,
-      "afkReason": "",
+      "afkTime": 1649375074569,
+      "afkReason": "puasa",
       "limit": 100
     },
     "6281555653029@s.whatsapp.net": {
@@ -286,6 +286,11 @@
       "limit": 100
     },
     "62895326817090@s.whatsapp.net": {
+      "afkTime": -1,
+      "afkReason": "",
+      "limit": 100
+    },
+    "6282175552395@s.whatsapp.net": {
       "afkTime": -1,
       "afkReason": "",
       "limit": 100
