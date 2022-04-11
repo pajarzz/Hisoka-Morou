@@ -2150,7 +2150,7 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
                                     id: 'sc'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, { image: { url: result }, btn)
+                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.pajar, btn)
                      }
             break
             default:
