@@ -14,13 +14,13 @@ global.APIs = {
 
 // Apikey Website Api
 global.APIKeys = {
-	'https://zenzapi.xyz': '7765c0c5354a',
+	'https://zenzapi.xyz': '605C3D8DB170',
 }
 
 // Other
 global.owner = ['6288293524506','6288293524506','6288293524506']
 global.premium = ['6288293524506']
-global.packname = 'Fajarbot-Mdོ'
+global.packname = 'NaoTomoriBot-Mdོ'
 global.author = 'F A J A R'
 global.sessionName = 'hisoka'
 global.prefa = ['','!','.','🐦','🐤','🗿']
@@ -41,6 +41,7 @@ global.limitawal = {
     free: 100
 }
 global.thumb = fs.readFileSync('./lib/pajar.jpg')
+global.pajar = fs.readFileSync('./lib/jar.jpg')
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
