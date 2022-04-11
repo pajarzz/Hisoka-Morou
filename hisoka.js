@@ -1145,7 +1145,7 @@ break
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      hisoka.send5ButImg(i, txt, hisoka.user.name, global.thumb, btn)
+                      hisoka.send5ButImg(i, txt, hisoka.user.name, global.pajar, btn)
                     }
                 m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
             }
@@ -1184,7 +1184,7 @@ break
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.thumb, btn)
+                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.pajar, btn)
 		}
 		m.reply('Sukses Broadcast')
             }
@@ -1669,64 +1669,6 @@ break
                 hisoka.sendMessage(m.chat, { video: { url: anu.data[0] } }, { quoted: m })
             }
             break
-            case 'joox': case 'jooxdl': {
-                if (!text) throw 'No Query Title'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/joox', { query: text }, 'apikey'))
-                let msg = await hisoka.sendImage(m.chat, anu.result.img, `⭔ Title : ${anu.result.lagu}\n⭔ Album : ${anu.result.album}\n⭔ Singer : ${anu.result.penyanyi}\n⭔ Publish : ${anu.result.publish}\n⭔ Lirik :\n${anu.result.lirik.result}`, m)
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.mp4aLink }, mimetype: 'audio/mpeg', fileName: anu.result.lagu+'.m4a' }, { quoted: msg })
-            }
-            break
-            case 'soundcloud': case 'scdl': {
-                if (!text) throw 'No Query Title'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/soundcloud', { url: isUrl(text)[0] }, 'apikey'))
-                let msg = await hisoka.sendImage(m.chat, anu.result.thumb, `⭔ Title : ${anu.result.title}\n⭔ Url : ${isUrl(text)[0]}`)
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.url }, mimetype: 'audio/mpeg', fileName: anu.result.title+'.m4a' }, { quoted: msg })
-            }
-            break
-	        case 'twitdl': case 'twitter': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/api/downloader/twitter', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `twittermp3 ${text}`, buttonText: {displayText: '► Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.result.HD || anu.result.SD },
-                    caption: util.format(anu.result),
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 5
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-            case 'twittermp3': case 'twitteraudio': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/api/downloader/twitter', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `twitter ${text}`, buttonText: {displayText: '► Video'}, type: 1}
-                ]
-                let buttonMessage = {
-		    image: { url: anu.result.thumb },
-                    caption: util.format(anu.result),
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 4
-                }
-                let msg = await hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio } }, { quoted: msg })
-            }
-            break
-	        case 'fbdl': case 'fb': case 'facebook': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/api/downloader/facebook', { url: text }, 'apikey'))
-                hisoka.sendMessage(m.chat, { video: { url: anu.result.url }, caption: `⭔ Title : ${anu.result.title}`}, { quoted: m })
-            }
-            break
         case 'ringtone': {
 		if (!text) throw `Example : ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper')
@@ -2037,14 +1979,18 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let timestamp = speed()
                 let latensi = speed() - timestamp
+                let { pinterest } = require('./lib/scraper')
+                anu = await pinterest(`Nao Tomori`)
+                result = anu[Math.floor(Math.random() * anu.length)]
                 anu = ` Quotes Hidup : ${result.quotes}
 
 Kecepatan Respon ${latensi.toFixed(4)}
+Runtime : ${runtime(process.uptime())}
 
 Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 
 ┌──⭓ *Group Menu*
-│
+│√
 │⭔ ${prefix}linkgroup
 │⭔ ${prefix}ephemeral [option]
 │⭔ ${prefix}setppgc [image]
@@ -2069,27 +2015,22 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 └───────⭓
 
 ┌──⭓ *Downloader Menu*
-│
+│√
 │⭔ ${prefix}tiktoknowm [url]
 │⭔ ${prefix}tiktokwm [url]
 │⭔ ${prefix}tiktokmp3 [url]
 │⭔ ${prefix}instagram [url]
-│⭔ ${prefix}twitter [url]
-│⭔ ${prefix}twittermp3 [url]
-│⭔ ${prefix}facebook [url]
 │⭔ ${prefix}pinterestdl [url]
 │⭔ ${prefix}ytmp3 [url]
 │⭔ ${prefix}ytmp4 [url]
 │⭔ ${prefix}getmusic [query]
 │⭔ ${prefix}getvideo [query]
 │⭔ ${prefix}umma [url]
-│⭔ ${prefix}joox [query]
-│⭔ ${prefix}soundcloud [url]
 │
 └───────⭓
 
 ┌──⭓ *Search Menu*
-│
+│√
 │⭔ ${prefix}play [query]
 │⭔ ${prefix}yts [query]
 │⭔ ${prefix}google [query]
@@ -2104,7 +2045,7 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 └───────⭓
 
 ┌──⭓ *Fun Menu*
-│
+│√
 │⭔ ${prefix}jadian
 │⭔ ${prefix}jodohku
 │⭔ ${prefix}delttt
@@ -2117,7 +2058,7 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 └───────⭓
 
 ┌──⭓ *Convert Menu*
-│
+│√
 │⭔ ${prefix}toimage
 │⭔ ${prefix}removebg
 │⭔ ${prefix}sticker
@@ -2135,52 +2076,52 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 └───────⭓
 
 ┌──⭓ *Anonymous Menu*
-│
+│√
 │⭔ ${prefix}anonymous
 │⭔ ${prefix}start
 │⭔ ${prefix}next
 │⭔ ${prefix}keluar
-│⭔ ${prefix}sendkontak
+│⭔ ${prefix}sendkontak 
 │
 └───────⭓
 
 ┌──⭓ *Islamic Menu*
-│
-│⭔ ${prefix}iqra
-│⭔ ${prefix}hadist
-│⭔ ${prefix}alquran
-│⭔ ${prefix}juzamma
-│⭔ ${prefix}tafsirsurah
+│√
+│⭔ ${prefix}iqra 
+│⭔ ${prefix}hadist 
+│⭔ ${prefix}alquran 
+│⭔ ${prefix}juzamma 
+│⭔ ${prefix}tafsirsurah 
 │
 └───────⭓
 
 ┌──⭓ *Voice Changer*
-│
-│⭔ ${prefix}bass
-│⭔ ${prefix}blown
-│⭔ ${prefix}deep
-│⭔ ${prefix}earrape
-│⭔ ${prefix}fast
-│⭔ ${prefix}fat
-│⭔ ${prefix}nightcore
-│⭔ ${prefix}reverse
-│⭔ ${prefix}robot
-│⭔ ${prefix}slow
-│⭔ ${prefix}tupai
+│√
+│⭔ ${prefix}bass 
+│⭔ ${prefix}blown 
+│⭔ ${prefix}deep 
+│⭔ ${prefix}earrape 
+│⭔ ${prefix}fast 
+│⭔ ${prefix}fat 
+│⭔ ${prefix}nightcore 
+│⭔ ${prefix}reverse 
+│⭔ ${prefix}robot 
+│⭔ ${prefix}slow 
+│⭔ ${prefix}tupai 
 │
 └───────⭓
 
 ┌──⭓ *Owner Menu*
-│
-│⭔ ${prefix}react [emoji]
-│⭔ ${prefix}join [link]
-│⭔ ${prefix}leave
-│⭔ ${prefix}block @user
-│⭔ ${prefix}unblock @user
-│⭔ ${prefix}bcgroup [text]
-│⭔ ${prefix}bcall [text]
-│⭔ ${prefix}setppbot [image]
-│⭔ ${prefix}setexif
+│√
+│⭔ ${prefix}react [emoji] 
+│⭔ ${prefix}join [link] 
+│⭔ ${prefix}leave 
+│⭔ ${prefix}block @user 
+│⭔ ${prefix}unblock @user 
+│⭔ ${prefix}bcgroup [text] 
+│⭔ ${prefix}bcall [text] 
+│⭔ ${prefix}setppbot [image] 
+│⭔ ${prefix}setexif 
 │
 └───────⭓`
                 let btn = [{
@@ -2209,7 +2150,7 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
                                     id: 'sc'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.thumb, btn)
+                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, { image: { url: result }, btn)
                      }
             break
             default:
