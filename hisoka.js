@@ -1130,17 +1130,17 @@ break
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Status Bot',
-                                    id: 'ping'
+                                    displayText: 'Sewa Bot',
+                                    id: 'sewa'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Contact Owner',
+                                    displayText: '✆ Contact Owner',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Script',
+                                    displayText: '⎙ Script',
                                     id: 'sc'
                                 }
                             }]
@@ -1169,17 +1169,17 @@ break
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Status Bot',
-                                    id: 'ping'
+                                    displayText: 'Sewa Bot',
+                                    id: 'sewa'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Contact Owner',
+                                    displayText: '✆ Contact Owner',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Script',
+                                    displayText: '⎙ Script',
                                     id: 'sc'
                                 }
                             }]
@@ -1973,18 +1973,68 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 hisoka.sendContact(m.chat, global.owner, m)
             }
             break
+            case 'sewa': {
+            kawai = `┌── 「 *Sewa Bot* 」
+├ Sewa 15k/manen
+├ Sewa 5k/Minggu
+├ sewa 10k/bulan
+├ Jasa Run Bot 20k
+└───────
+
+Contact person Owner :
+wa.me/6288293524506`
+let btn = [{
+                                urlButton: {
+                                    displayText: 'Instagram',
+                                    url: 'https://instagram.com/king_off_xzn'
+                                }
+                            }, {
+                                urlButton: {
+                                    displayText: 'MyGithub ×፝֟͜×',
+                                    url: 'Fajar472.github.io/'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Status Bot',
+                                    id: 'ping'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: '✆ Contact Owner',
+                                    id: 'owner'
+                                }  
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Script',
+                                    id: 'sc'
+                                }
+                            }]
+                      let txt = `「 List Sewa Bot 」\n\n${kawai}`
+                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.sewa, btn)
+                      }
+            break
             case 'list': case 'menu': case 'help': case '?': {
             	let { quotesAnime } = require('./lib/scraper')
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let timestamp = speed()
-                let latensi = speed() - timestamp                
-                anu = ` Quotes Hidup : ${result.quotes}
+                let latensi = speed() - timestamp
+                anu = ` Quotes By ${result.karakter} : ${result.quotes}
 
 Kecepatan Respon ${latensi.toFixed(4)}
 Runtime : ${runtime(process.uptime())}
 
 Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
+
+⎙ jika ada bug atau eror silahkan hubungi owner biar segera di fix
+
+*⊹ 🧚🏻‍♀️  ̖́- silahkan baca peraturan dulu sebelum memakai bot.*
+
+*-Note ꢁ*
+*֗ ៵ ⌗: beri jeda 5-10 detik*
+*֗ ៵ ⌗: no sepam bot*
+*֗ ៵ ⌗: no telepon / vc*
+
 
 ┌──⭓ *Group Menu*
 │√
@@ -2119,6 +2169,8 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 │⭔ ${prefix}bcall [text] 
 │⭔ ${prefix}setppbot [image] 
 │⭔ ${prefix}setexif 
+│⭔ ${prefix}listpc
+│⭔ ${prefix}listgc
 │
 └───────⭓`
                 let btn = [{
@@ -2133,17 +2185,17 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Status Bot',
-                                    id: 'ping'
+                                    displayText: 'Sewa Bot',
+                                    id: 'sewa'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Contact Owner',
+                                    displayText: '✆ Owner',
                                     id: 'owner'
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Script',
+                                    displayText: '⎙ Script',
                                     id: 'sc'
                                 }
                             }]
