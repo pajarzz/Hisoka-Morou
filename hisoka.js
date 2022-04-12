@@ -1978,10 +1978,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 let anu = await quotesAnime()
                 result = anu[Math.floor(Math.random() * anu.length)]
                 let timestamp = speed()
-                let latensi = speed() - timestamp
-                let { pinterest } = require('./lib/scraper')
-                anu = await pinterest(`Nao Tomori`)
-                result = anu[Math.floor(Math.random() * anu.length)]
+                let latensi = speed() - timestamp                
                 anu = ` Quotes Hidup : ${result.quotes}
 
 Kecepatan Respon ${latensi.toFixed(4)}
