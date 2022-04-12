@@ -1145,7 +1145,7 @@ break
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      hisoka.send5ButImg(i, txt, hisoka.user.name, global.pajar, btn)
+                      hisoka.send5ButImg(i, txt, hisoka.user.name, global.bc, btn)
                     }
                 m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
             }
@@ -1184,7 +1184,7 @@ break
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.pajar, btn)
+                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.bc, btn)
 		}
 		m.reply('Sukses Broadcast')
             }
@@ -2199,7 +2199,7 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
                                     id: 'sc'
                                 }
                             }]
-                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.pajar, btn)
+                        hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.menu, btn)
                      }
             break
             default:
