@@ -2010,7 +2010,7 @@ let btn = [{
                                 }
                             }]
                       let txt = `「 List Sewa Bot 」\n\n${kawai}`
-                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.sewa, btn)
+                      hisoka.send5ButImg(m.chat, txt, hisoka.user.name, global.sewa, btn)
                       }
             break
             case 'list': case 'menu': case 'help': case '?': {
