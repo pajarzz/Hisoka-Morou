@@ -12,6 +12,8 @@ const moment = require('moment-timezone')
 const { JSDOM } = require('jsdom')
 const speed = require('performance-now')
 const { performance } = require('perf_hooks')
+const pajar = require('@bochilteam/scraper')
+const iqbal = require('kitsune-api')
 const { Primbon } = require('scrape-primbon')
 const primbon = new Primbon()
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/myfunc')
@@ -1594,35 +1596,20 @@ break
                 }
             }
             break
-	        case 'tiktok': case 'tiktoknowm': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '► With Watermark'}, type: 1},
-                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
+            case 'tiktok': case 'tiktoknowm': {
+            	if (!q) throw 'Masukan Link Tiktoknya'
+             m.reply(mess.wait)
+             let { tiktokdlv3 } = require('@bochilteam/scraper')
+             let anu = await tiktokdlv3(q)
+             let buttons = [
+                    {buttonId: `tiktokmp3 ${q}`, buttonText: {displayText: '♫ Audio'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video: { url: anu.result.nowatermark },
-                    caption: `Download From ${text}`,
-                    footer: 'Press The Button Below',
-                    buttons: buttons,
-                    headerType: 5
-                }
-                hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
-            case 'tiktokwm': case 'tiktokwatermark': {
-                if (!text) throw 'Masukkan Query Link!'
-                m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
-                let buttons = [
-                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
-                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
-                ]
-                let buttonMessage = {
-                    video: { url: anu.result.watermark },
-                    caption: `Download From ${text}`,
+                    video: { url: anu.video.no_watermark },
+                    caption: `
+Nama Tiktok = { url: anu.author.nickname }
+Des Tiktok = { url: anu.author.description }                 
+Download From ${q}`,
                     footer: 'Press The Button Below',
                     buttons: buttons,
                     headerType: 5
@@ -1631,23 +1618,24 @@ break
             }
             break
             case 'tiktokmp3': case 'tiktokaudio': {
-                if (!text) throw 'Masukkan Query Link!'
+                if (!q) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
-                let anu = await fetchJson(api('zenz', '/downloader/musically', { url: text }, 'apikey'))
+                let { tiktokdlv3 } = require('@bochilteam/scraper')
+                let anu = await tiktokdlv3(q)
                 let buttons = [
-                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
-                    {buttonId: `tiktokwm ${text}`, buttonText: {displayText: '► With Watermark'}, type: 1}
+                    {buttonId: `tiktoknowm ${q}`, buttonText: {displayText: '► No Watermark'}, type: 1}
                 ]
                 let buttonMessage = {
-                    text: `Download From ${text}`,
+                    text: `Download From ${q}`,
                     footer: 'Press The Button Below',
                     buttons: buttons,
                     headerType: 2
                 }
                 let msg = await hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.audio }, mimetype: 'audio/mpeg'}, { quoted: msg })
+                hisoka.sendMessage(m.chat, { audio: { url: anu.result.music }, mimetype: 'audio/mpeg'}, { quoted: msg })
             }
             break
+            
 	        case 'instagram': case 'ig': case 'igdl': {
                 if (!text) throw 'No Query Url!'
                 m.reply(mess.wait)
@@ -2010,7 +1998,7 @@ let btn = [{
                                 }
                             }]
                       let txt = `「 List Sewa Bot 」\n\n${kawai}`
-                      hisoka.send5ButImg(m.chat, txt, hisoka.user.name, global.sewa, btn)
+                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.sewa, btn)
                       }
             break
             case 'list': case 'menu': case 'help': case '?': {
