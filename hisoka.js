@@ -16,7 +16,6 @@ const pajar = require('@bochilteam/scraper')
 const iqbal = require('kitsune-api')
 const { Primbon } = require('scrape-primbon')
 const primbon = new Primbon()
-let textproo = config.textpro
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/myfunc')
 const { Gempa } = require("./lib/gempa.js");
 let { covid } = require('./lib/covid.js') 
@@ -2257,104 +2256,113 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
             break
             case 'hoorror':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.hoorror_blood}`
+     let link = `https://textpro.me/horror-blood-text-effect-online-883.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
 }
    break 
    case 'sand':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     et link = `${textproo.sand}`
+     et link = `https://textpro.me/sand-engraved-3d-text-effect-989.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
 }
    break
    case 'magma':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.magma}`
+     let link = `https://textpro.me/create-a-magma-hot-text-effect-online-1030.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
 }
   break
-  case 'blackpink':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.blackpink}`
+  case 'blackpink':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/create-blackpink-logo-style-online-1001.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
-  case 'sketch':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.sketch}`
+  case 'sketch':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/create-a-sketch-text-effect-online-1044.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
-  case 'glass':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.glass}`
+  case 'glass':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/green-glass-text-effect-910.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
    break
-   case 'lightglow':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.lightglow}`
+   case 'lightglow':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/create-light-glow-sliced-text-effect-online-1068.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
-  case 'sci':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-      let link = `${textproo.sci_fi}`
+  case 'sci':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+      let link = `https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html`
       let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
   
 }
   break
-  case 'ice':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.ice}`
+  case 'ice':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/ice-cold-text-effect-862.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
-  case 'demon':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.gdemon}`
+  case 'demon':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/create-green-horror-style-text-effect-online-1036.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
-  case 'batman':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.batman}`
+  case 'batman':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/make-a-batman-logo-online-free-1066.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
-  case 'metal':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.sea_metal}`
+  case 'metal':{
+if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
   case 'skeleton':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.skeleton}`
+     let link = `https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
 }
   break
   case 'warning':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.warning}`
+     let link = `https://textpro.me/road-warning-text-effect-878.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )  
 }
   break
   case 'transformer':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.transformer}`
+     let link = `https://textpro.me/create-a-transformer-text-effect-online-1035.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )  
 }
   break
   case 'denim':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     let link = `${textproo.denim}`
+     let link = `https://textpro.me/denim-text-effect-online-919.html`
      let anu = await textpro(link, q)
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
 }
