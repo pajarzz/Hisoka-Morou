@@ -136,26 +136,11 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
 	    }
 	}
 	
-	  hisoka.setStatus = (status) => {
-        sock.query({
-            tag: 'iq',
-            attrs: {
-                to: '@s.whatsapp.net',
-                type: 'set',
-                xmlns: 'status',
-            },
-            content: [{
-                tag: 'status',
-                attrs: {},
-                content: Buffer.from(status, 'utf-8')
-            }]
-        })
-        return status
-    }
+	
 	
 	  if (isCmd){
 let uptime = await runtime(process.uptime())
-await hisoka.setStatus(`ACTIVE DURING : ${runtime(process.uptime())} TYPE ${prefix}menu`) 
+await hisoka.setStatus(`TOMORI ON : ${runtime(process.uptime())} TYPE ${prefix}menu`) 
 	}
 	    
 	  // Anti Link
