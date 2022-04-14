@@ -16,8 +16,14 @@ const pajar = require('@bochilteam/scraper')
 const iqbal = require('kitsune-api')
 const { Primbon } = require('scrape-primbon')
 const primbon = new Primbon()
+let textproo = config.textpro
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/myfunc')
-
+const { Gempa } = require("./lib/gempa.js");
+let { covid } = require('./lib/covid.js') 
+const { jadwaltv }= require('./lib/jadwaltv');
+let { cnn } = require('./lib/cnn.js') 
+const { textpro } = require('./lib/textpro') 
+ 
 // read database
 let tebaklagu = db.data.game.tebaklagu = []
 let _family100 = db.data.game.family100 = []
@@ -129,6 +135,28 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
 		await hisoka.setStatus(`${hisoka.user.name} | Runtime : ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
+	}
+	
+	  hisoka.setStatus = (status) => {
+        sock.query({
+            tag: 'iq',
+            attrs: {
+                to: '@s.whatsapp.net',
+                type: 'set',
+                xmlns: 'status',
+            },
+            content: [{
+                tag: 'status',
+                attrs: {},
+                content: Buffer.from(status, 'utf-8')
+            }]
+        })
+        return status
+    }
+	
+	  if (isCmd){
+let uptime = await runtime(process.uptime())
+await hisoka.setStatus(`ACTIVE DURING : ${runtime(process.uptime())} TYPE ${prefix}menu`) 
 	}
 	    
 	  // Anti Link
@@ -1608,9 +1636,9 @@ break
                     video: { url: anu.video.no_watermark },
                     caption: `
 Nama Tiktok = ${anu.author.nickname}
-Des Tiktok = ${anu.author.description}                 
+Des Tiktok = ${anu.description}                 
 Download From ${q}`,
-                    footer: 'Press The Button Below',
+                    footer: 'Jika Ingin Dwonload Audionya Pencet Button Di Bawah Yah',
                     buttons: buttons,
                     headerType: 5
                 }
@@ -2056,6 +2084,36 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 │
 └───────⭓
 
+┌──⭓ *TEXT PRO*
+│√
+│ꪶFꫂ ${prefix}hoorror [Query]
+│ꪶFꫂ ${prefix}sand [Query] 
+│ꪶFꫂ ${prefix}magma [Query]
+│ꪶFꫂ ${prefix}blackpink [Query]
+│ꪶFꫂ ${prefix}sketch [Query]
+│ꪶFꫂ ${prefix}glass [Query]
+│ꪶFꫂ ${prefix}lightglow [Query]
+│ꪶFꫂ ${prefix}sci [Query]
+│ꪶFꫂ ${prefix}ice [Query]
+│ꪶFꫂ ${prefix}demon [Query]
+│ꪶFꫂ ${prefix}batman [Query]
+│ꪶFꫂ ${prefix}metal [Query]
+│ꪶFꫂ ${prefix}sekeleton [Query]
+│ꪶFꫂ ${prefix}warning [Query]
+│ꪶFꫂ ${prefix}transformer [Query]
+│ꪶFꫂ ${prefix}denim [Query]
+│
+└───────⭓
+
+┌──⭓ *INFO MEDIA*
+│√
+│ꪶFꫂ ${prefix}cnn
+│ꪶFꫂ ${prefix}jadwaltv
+│ꪶFꫂ ${prefix}covidindo
+│ꪶFꫂ ${prefix}gempa
+│
+└───────⭓
+
 ┌──⭓ *Downloader Menu*
 │√
 │ꪶFꫂ ${prefix}tiktoknowm [url]
@@ -2095,6 +2153,7 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 │ꪶFꫂ ${prefix}tebak [option]
 │ꪶFꫂ ${prefix}math [mode]
 │ꪶFꫂ ${prefix}suitpvp [@tag]
+│ꪶFꫂ ${prefix}simi [query]
 │
 └───────⭓
 
@@ -2196,6 +2255,140 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
                         hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.menu, btn)
                      }
             break
+            case 'hoorror':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.hoorror_blood}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
+}
+   break 
+   case 'sand':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     et link = `${textproo.sand}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
+}
+   break
+   case 'magma':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.magma}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
+}
+  break
+  case 'blackpink':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.blackpink}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'sketch':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.sketch}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'glass':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.glass}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+   break
+   case 'lightglow':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.lightglow}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'sci':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+      let link = `${textproo.sci_fi}`
+      let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+  
+}
+  break
+  case 'ice':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.ice}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'demon':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.gdemon}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'batman':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.batman}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'metal':{if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.sea_metal}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'skeleton':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.skeleton}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )
+}
+  break
+  case 'warning':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.warning}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )  
+}
+  break
+  case 'transformer':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.transformer}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )  
+}
+  break
+  case 'denim':{
+    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
+     let link = `${textproo.denim}`
+     let anu = await textpro(link, q)
+    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
+}
+  break
+            case'cnn':
+var server = await cnn()
+let cn = 'CNN NEWS'
+for (let i = 0; i < server.length; i++) {
+cn += `\n\nTitle : ${server[i].judul}\nLink : ${server[i].link}\nImage: ${server[i].thumb}`
+}
+hisoka.sendMessage(m.chat, {image : { url : server[10].thumb }, caption : cn}) 
+break
+            case 'jadwaltv':
+if (!q) return reply('Kirim perintah *#jadwaltv [channel]*')
+reply(await jadwaltv(q))
+break
+            case 'covidindo':
+const c = await covid()
+var { kasus, kematian, sembuh } = c[0]
+hisoka.sendMessage(m.chat, {text : `Kasus : ${kasus}\n\nKematian : ${kematian}\n\nSembuh : ${sembuh}`}, m)
+break
+            case 'gempa':
+const tres = await Gempa()
+var { Waktu, Lintang, Bujur, Magnitude, Kedalaman, Wilayah, Map } = tres.result
+const captt = `Waktu : ${Waktu}\nLintang : ${Lintang}\nBujur : ${Bujur}\nWilayah : ${Wilayah}`
+hisoka.sendMessage(m.chat, { image : { url : Map }, caption : captt})
+break
+            case 'simi':
+if (!q) return reply('contoh : #simi udah makan blom') 
+const simi = await fetchJson(`https://simsimi.info/api/?text=${q}&lc=id`)
+const sami = simi.success
+reply(sami) 
+//sock.sendMessage(from, { text : sami },m) 
+break
             /*case 'menu':{
 					if(typemenu == 'templateLocation'){
 						await hisoka.send5ButLoc(from, lang.menunya(salam, pushname, botname) , `© ${ownername}`,pp_bot, 
