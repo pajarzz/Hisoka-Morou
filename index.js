@@ -55,7 +55,7 @@ async function startHisoka() {
     const hisoka = hisokaConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['Hisoka Multi Device','Safari','1.0.0'],
+        browser: ['Tomori Multi Device','Safari','1.0.0'],
         auth: state
     })
 
@@ -66,7 +66,7 @@ async function startHisoka() {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     let pa7rick = await hisoka.sendContact(callerId, global.owner)
-    hisoka.sendMessage(callerId, { text: `Sistem otomatis block!\nJangan menelpon bot!\nSilahkan Hubungi Owner Untuk Dibuka !`}, { quoted : pa7rick })
+    hisoka.sendMessage(callerId, { text: `Sistem otomatis block!\nJangan menelpon Tomori!\nSilahkan Hubungi Owner Untuk Dibuka !`}, { quoted : pa7rick })
     await sleep(8000)
     await hisoka.updateBlockStatus(callerId, "block")
     }
@@ -158,7 +158,7 @@ async function startHisoka() {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await hisoka.getName(i + '@s.whatsapp.net'),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await hisoka.getName(i + '@s.whatsapp.net')}\nFN:${await hisoka.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Ponsel\nitem2.EMAIL;type=INTERNET:okeae2410@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://instagram.com/cak_haho\nitem3.X-ABLabel:Instagram\nitem4.ADR:;;Indonesia;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await hisoka.getName(i + '@s.whatsapp.net')}\nFN:${await hisoka.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Ponsel\nitem2.EMAIL;type=INTERNET:rifandifajar9@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://instagram.com/king_off_xzn\nitem3.X-ABLabel:Instagram\nitem4.ADR:;;Indonesia;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	hisoka.sendMessage(jid, { contacts: { displayName: `${list.length} Kontak`, contacts: list }, ...opts }, { quoted })
@@ -198,7 +198,7 @@ async function startHisoka() {
             else if (reason === DisconnectReason.timedOut) { console.log("Connection TimedOut, Reconnecting..."); startHisoka(); }
             else hisoka.end(`Unknown DisconnectReason: ${reason}|${connection}`)
         }
-        console.log('Connected...', update)
+        console.log('Udah Terhubung...', update)
     })
 
     hisoka.ev.on('creds.update', saveState)
