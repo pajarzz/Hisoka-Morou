@@ -2071,7 +2071,6 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 ┌──⭓ *TEXT PRO*
 │√
 │ꪶFꫂ ${prefix}hoorror [Query]
-│ꪶFꫂ ${prefix}sand [Query] 
 │ꪶFꫂ ${prefix}magma [Query]
 │ꪶFꫂ ${prefix}blackpink [Query]
 │ꪶFꫂ ${prefix}sketch [Query]
@@ -2246,13 +2245,6 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
     hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
 }
    break 
-   case 'sand':{
-    if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
-     et link = `https://textpro.me/sand-engraved-3d-text-effect-989.html`
-     let anu = await textpro(link, q)
-    hisoka.sendMessage(m.chat, { image: { url : anu }, caption: `Nih kak, jangan lupa follow ig owner\nhttps://www.instagram.com/king_off_xzn`}, { quoted: m } )   
-}
-   break
    case 'magma':{
     if (args.length < 1) return m.reply(m.chat, 'Teks?', { quoted : m } )
      let link = `https://textpro.me/create-a-magma-hot-text-effect-online-1030.html`
