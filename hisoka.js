@@ -1607,8 +1607,8 @@ break
                 let buttonMessage = {
                     video: { url: anu.video.no_watermark },
                     caption: `
-Nama Tiktok = { url: anu.author.nickname }
-Des Tiktok = { url: anu.author.description }                 
+Nama Tiktok = ${anu.author.nickname}
+Des Tiktok = ${anu.author.description}                 
 Download From ${q}`,
                     footer: 'Press The Button Below',
                     buttons: buttons,
@@ -1632,10 +1632,17 @@ Download From ${q}`,
                     headerType: 2
                 }
                 let msg = await hisoka.sendMessage(m.chat, buttonMessage, { quoted: m })
-                hisoka.sendMessage(m.chat, { audio: { url: anu.result.music }, mimetype: 'audio/mpeg'}, { quoted: msg })
+                hisoka.sendMessage(m.chat, { audio: { url: anu.video.music }, mimetype: 'audio/mpeg'}, { quoted: msg })
             }
-            break
-            
+            break     
+/*case 'tiktok': case 'tiktoknowm': {
+if (!q) throw 'Masukan Link Yang Mau Di Dwonload Contoh : tiktok https://tiktok.com/'
+let { tiktokdl } = require('@bochilteam/scraper')
+let anu = await tiktokdl(q)
+hisoka.sendMessage(m.chat, { video: {url: anu.video.no_watermark }, fileName: `${title}.mp4`, mimetype: 'video/mp4' }, { quoted: m })
+}
+break*/
+
 	        case 'instagram': case 'ig': case 'igdl': {
                 if (!text) throw 'No Query Url!'
                 m.reply(mess.wait)
@@ -2026,139 +2033,138 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
 
 ┌──⭓ *Group Menu*
 │√
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}ephemeral [option]
-│⭔ ${prefix}setppgc [image]
-│⭔ ${prefix}setname [text]
-│⭔ ${prefix}setdesc [text]
-│⭔ ${prefix}group [option]
-│⭔ ${prefix}editinfo [option]
-│⭔ ${prefix}add @user
-│⭔ ${prefix}kick @user
-│⭔ ${prefix}hidetag [text]
-│⭔ ${prefix}tagall [text]
-│⭔ ${prefix}antilink [on/off]
-│⭔ ${prefix}mute [on/off]
-│⭔ ${prefix}promote @user
-│⭔ ${prefix}demote @user
-│⭔ ${prefix}vote [text]
-│⭔ ${prefix}devote
-│⭔ ${prefix}upvote
-│⭔ ${prefix}cekvote
-│⭔ ${prefix}hapusvote
+│ꪶFꫂ ${prefix}linkgroup
+│ꪶFꫂ ${prefix}ephemeral [option]
+│ꪶFꫂ ${prefix}setppgc [image]
+│ꪶFꫂ ${prefix}setname [text]
+│ꪶFꫂ ${prefix}setdesc [text]
+│ꪶFꫂ ${prefix}group [option]
+│ꪶFꫂ ${prefix}editinfo [option]
+│ꪶFꫂ ${prefix}add @user
+│ꪶFꫂ ${prefix}kick @user
+│ꪶFꫂ ${prefix}hidetag [text]
+│ꪶFꫂ ${prefix}tagall [text]
+│ꪶFꫂ ${prefix}antilink [on/off]
+│ꪶFꫂ ${prefix}mute [on/off]
+│ꪶFꫂ ${prefix}promote @user
+│ꪶFꫂ ${prefix}demote @user
+│ꪶFꫂ ${prefix}vote [text]
+│ꪶFꫂ ${prefix}devote
+│ꪶFꫂ ${prefix}upvote
+│ꪶFꫂ ${prefix}cekvote
+│ꪶFꫂ ${prefix}hapusvote
 │
 └───────⭓
 
 ┌──⭓ *Downloader Menu*
 │√
-│⭔ ${prefix}tiktoknowm [url]
-│⭔ ${prefix}tiktokwm [url]
-│⭔ ${prefix}tiktokmp3 [url]
-│⭔ ${prefix}instagram [url]
-│⭔ ${prefix}pinterestdl [url]
-│⭔ ${prefix}ytmp3 [url]
-│⭔ ${prefix}ytmp4 [url]
-│⭔ ${prefix}getmusic [query]
-│⭔ ${prefix}getvideo [query]
-│⭔ ${prefix}umma [url]
+│ꪶFꫂ ${prefix}tiktoknowm [url]
+│ꪶFꫂ ${prefix}tiktokmp3 [url] 
+│ꪶFꫂ ${prefix}instagram [url]
+│ꪶFꫂ ${prefix}pinterestdl [url]
+│ꪶFꫂ ${prefix}ytmp3 [url]
+│ꪶFꫂ ${prefix}ytmp4 [url]
+│ꪶFꫂ ${prefix}getmusic [query]
+│ꪶFꫂ ${prefix}getvideo [query]
+│ꪶFꫂ ${prefix}umma [url]
 │
 └───────⭓
 
 ┌──⭓ *Search Menu*
 │√
-│⭔ ${prefix}play [query]
-│⭔ ${prefix}yts [query]
-│⭔ ${prefix}google [query]
-│⭔ ${prefix}gimage [query]
-│⭔ ${prefix}pinterest [query]
-│⭔ ${prefix}wallpaper [query]
-│⭔ ${prefix}wikimedia [query]
-│⭔ ${prefix}ytsearch [query]
-│⭔ ${prefix}ringtone [query]
-│⭔ ${prefix}stalk [option] [query]
+│ꪶFꫂ ${prefix}play [query]
+│ꪶFꫂ ${prefix}yts [query]
+│ꪶFꫂ ${prefix}google [query]
+│ꪶFꫂ ${prefix}gimage [query]
+│ꪶFꫂ ${prefix}pinterest [query]
+│ꪶFꫂ ${prefix}wallpaper [query]
+│ꪶFꫂ ${prefix}wikimedia [query]
+│ꪶFꫂ ${prefix}ytsearch [query]
+│ꪶFꫂ ${prefix}ringtone [query]
+│ꪶFꫂ ${prefix}stalk [option] [query]
 │
 └───────⭓
 
 ┌──⭓ *Fun Menu*
 │√
-│⭔ ${prefix}jadian
-│⭔ ${prefix}jodohku
-│⭔ ${prefix}delttt
-│⭔ ${prefix}tictactoe
-│⭔ ${prefix}family100
-│⭔ ${prefix}tebak [option]
-│⭔ ${prefix}math [mode]
-│⭔ ${prefix}suitpvp [@tag]
+│ꪶFꫂ ${prefix}jadian
+│ꪶFꫂ ${prefix}jodohku
+│ꪶFꫂ ${prefix}delttt
+│ꪶFꫂ ${prefix}tictactoe
+│ꪶFꫂ ${prefix}family100
+│ꪶFꫂ ${prefix}tebak [option]
+│ꪶFꫂ ${prefix}math [mode]
+│ꪶFꫂ ${prefix}suitpvp [@tag]
 │
 └───────⭓
 
 ┌──⭓ *Convert Menu*
 │√
-│⭔ ${prefix}toimage
-│⭔ ${prefix}removebg
-│⭔ ${prefix}sticker
-│⭔ ${prefix}emojimix
-│⭔ ${prefix}tovideo
-│⭔ ${prefix}togif
-│⭔ ${prefix}tourl
-│⭔ ${prefix}tovn
-│⭔ ${prefix}tomp3
-│⭔ ${prefix}toaudio
-│⭔ ${prefix}ebinary
-│⭔ ${prefix}dbinary
-│⭔ ${prefix}styletext
+│ꪶFꫂ ${prefix}toimage
+│ꪶFꫂ ${prefix}removebg
+│ꪶFꫂ ${prefix}sticker
+│ꪶFꫂ ${prefix}emojimix
+│ꪶFꫂ ${prefix}tovideo
+│ꪶFꫂ ${prefix}togif
+│ꪶFꫂ ${prefix}tourl
+│ꪶFꫂ ${prefix}tovn
+│ꪶFꫂ ${prefix}tomp3
+│ꪶFꫂ ${prefix}toaudio
+│ꪶFꫂ ${prefix}ebinary
+│ꪶFꫂ ${prefix}dbinary
+│ꪶFꫂ ${prefix}styletext
 │
 └───────⭓
 
 ┌──⭓ *Anonymous Menu*
 │√
-│⭔ ${prefix}anonymous
-│⭔ ${prefix}start
-│⭔ ${prefix}next
-│⭔ ${prefix}keluar
-│⭔ ${prefix}sendkontak 
+│ꪶFꫂ ${prefix}anonymous
+│ꪶFꫂ ${prefix}start
+│ꪶFꫂ ${prefix}next
+│ꪶFꫂ ${prefix}keluar
+│ꪶFꫂ ${prefix}sendkontak 
 │
 └───────⭓
 
 ┌──⭓ *Islamic Menu*
 │√
-│⭔ ${prefix}iqra 
-│⭔ ${prefix}hadist 
-│⭔ ${prefix}alquran 
-│⭔ ${prefix}juzamma 
-│⭔ ${prefix}tafsirsurah 
+│ꪶFꫂ ${prefix}iqra 
+│ꪶFꫂ ${prefix}hadist 
+│ꪶFꫂ ${prefix}alquran 
+│ꪶFꫂ ${prefix}juzamma 
+│ꪶFꫂ ${prefix}tafsirsurah 
 │
 └───────⭓
 
 ┌──⭓ *Voice Changer*
 │√
-│⭔ ${prefix}bass 
-│⭔ ${prefix}blown 
-│⭔ ${prefix}deep 
-│⭔ ${prefix}earrape 
-│⭔ ${prefix}fast 
-│⭔ ${prefix}fat 
-│⭔ ${prefix}nightcore 
-│⭔ ${prefix}reverse 
-│⭔ ${prefix}robot 
-│⭔ ${prefix}slow 
-│⭔ ${prefix}tupai 
+│ꪶFꫂ ${prefix}bass 
+│ꪶFꫂ ${prefix}blown 
+│ꪶFꫂ ${prefix}deep 
+│ꪶFꫂ ${prefix}earrape 
+│ꪶFꫂ ${prefix}fast 
+│ꪶFꫂ ${prefix}fat 
+│ꪶFꫂ ${prefix}nightcore 
+│ꪶFꫂ ${prefix}reverse 
+│ꪶFꫂ ${prefix}robot 
+│ꪶFꫂ ${prefix}slow 
+│ꪶFꫂ ${prefix}tupai 
 │
 └───────⭓
 
 ┌──⭓ *Owner Menu*
 │√
-│⭔ ${prefix}react [emoji] 
-│⭔ ${prefix}join [link] 
-│⭔ ${prefix}leave 
-│⭔ ${prefix}block @user 
-│⭔ ${prefix}unblock @user 
-│⭔ ${prefix}bcgroup [text] 
-│⭔ ${prefix}bcall [text] 
-│⭔ ${prefix}setppbot [image] 
-│⭔ ${prefix}setexif 
-│⭔ ${prefix}listpc
-│⭔ ${prefix}listgc
+│ꪶFꫂ ${prefix}react [emoji] 
+│ꪶFꫂ ${prefix}join [link] 
+│ꪶFꫂ ${prefix}leave 
+│ꪶFꫂ ${prefix}block @user 
+│ꪶFꫂ ${prefix}unblock @user 
+│ꪶFꫂ ${prefix}bcgroup [text] 
+│ꪶFꫂ ${prefix}bcall [text] 
+│ꪶFꫂ ${prefix}setppbot [image] 
+│ꪶFꫂ ${prefix}setexif 
+│ꪶFꫂ ${prefix}listpc
+│ꪶFꫂ ${prefix}listgc
 │
 └───────⭓`
                 let btn = [{
@@ -2190,6 +2196,25 @@ Haii ${m.pushName} Semoga Harimu Senyum Terus 😊
                         hisoka.send5ButImg(m.chat, anu, hisoka.user.name, global.menu, btn)
                      }
             break
+            /*case 'menu':{
+					if(typemenu == 'templateLocation'){
+						await hisoka.send5ButLoc(from, lang.menunya(salam, pushname, botname) , `© ${ownername}`,pp_bot, 
+[{"urlButton": {"displayText": "YouTube Creator","url": `${youtube}`}},
+{"urlButton": {"displayText": "Rest Api's","url": `${myweb}`}},
+{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},
+{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},
+{"quickReplyButton": {"displayText": "List Command","id": 'command'}}] )
+							}
+						if(typemenu == 'templateTenor'){
+							hisoka.send5ButGif(from, lang.menunya(salam, pushname, botname) , `© ${ownername}` ,pp_bot, 
+[{"urlButton": {"displayText": "YouTube Creator","url": `${youtube}`}},
+{"urlButton": {"displayText": "Rest Api's","url": `${myweb}`}},
+{"quickReplyButton": {"displayText": "Donasi","id": 'donate'}},
+{"quickReplyButton": {"displayText": "Owner","id": 'owner'}},
+{"quickReplyButton": {"displayText": "List Command","id": 'command'}}] , {quoted: m})
+						 }
+					}
+					break*/    
             default:
                 if (budy.startsWith('=>')) {
                     if (!isCreator) return m.reply(mess.owner)
