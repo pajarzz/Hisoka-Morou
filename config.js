@@ -46,6 +46,7 @@ global.pajar = fs.readFileSync('./lib/jar.jpg')
 global.menu = fs.readFileSync('./src/menu.jpg')
 global.bc = fs.readFileSync('./src/bc.jpg')
 global.sewa = fs.readFileSync('./src/sewa.jpg')
+global.fake = fs.readFileSync('./src/fake.jpg')
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
