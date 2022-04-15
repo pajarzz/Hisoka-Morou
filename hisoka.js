@@ -62,6 +62,15 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
     	const isBotAdmins = m.isGroup ? groupAdmins.includes(botNumber) : false
     	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
+    
+        const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "120363043511007284@g.us"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: global.fake, surface: 200, message: `© Tomori`, orderTitle: 'WTF', sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+		const fdoc = {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `© Tomori`,jpegThumbnail: global.fake}}}
+		const fvn = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "120363043511007284@g.us" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds":359996400,"ptt": "true"}} } 
+		const fgif = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})},message: {"videoMessage": { "title":`© Fajar Rifandi`, "h": `Hmm`,'seconds': '359996400', 'gifPlayback': 'true', 'caption': `© Fajar Rifandi`, 'jpegThumbnail': global.fake}}}
+		const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "120363043511007284@g.us","inviteCode": "GUNNE1klKuS81EGcC0sy3K","groupName": "BotWhatsApp-BailyesMD", "caption": `© Fajar Rifandi`, 'jpegThumbnail': global.fake}}}
+		const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "120363043511007284@g.us" } : {}) },message: { "videoMessage": { "title":`${pushname}`, "h": `Hmm`,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': global.fake}}}
+		const floc = {key : {participant : '0@s.whatsapp.net'},message: {locationMessage: {name: `Tomori`,jpegThumbnail: global.fake}}}
+		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `120363043511007284@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': global.fake, thumbnail: global.fake,sendEphemeral: true}}}
 	
 	
 	try {
@@ -162,6 +171,10 @@ await hisoka.setStatus(`TOMORI ON : ${runtime(process.uptime())} TYPE ${prefix}m
       if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
       return
       }
+      
+      if (chatmessage.includes(`assalamualaikum`) || chatmessage.includes(`Asalamu'alaikum`) || chatmessage.includes(`Assalamualaikum`) || chatmessage.includes(`Asalamualaikum`) || chatmessage.includes(`asalamu'alaikum`) || chatmessage.includes(`assalamu'alaikum`) || chatmessage.includes(`Assalamu'alaikum`) || chatmessage.includes(`Assalamu'alaikum`) || chatmessage.includes(`asalamualaikum`) || chatmessage.includes(`asalamu'alaikum`)) {
+          hisoka.sendMessage(m.chat, { text: 'Waalaikumsalam' },{ quoted : m })  
+       }    
 
         // Respon Cmd with media
         if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.data.sticker)) {
@@ -835,7 +848,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 for (let mem of participants) {
                 teks += `⭔ @${mem.id.split('@')[0]}\n`
                 }
-                hisoka.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+                hisoka.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: fkontak })
                 }
                 break
                 case 'hidetag': {
@@ -1977,7 +1990,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'owner': case 'creator': {
-                hisoka.sendContact(m.chat, global.owner, m)
+                hisoka.sendContact(m.chat, global.owner, ftroli)
             }
             break
             case 'sewa': {
@@ -2017,7 +2030,7 @@ let btn = [{
                                 }
                             }]
                       let txt = `「 List Sewa Bot 」\n\n${kawai}`
-                      hisoka.send5ButImg(yoi, txt, hisoka.user.name, global.sewa, btn)
+                      hisoka.send5ButImg(m.chat, txt, hisoka.user.name, global.sewa, btn)
                       }
             break
             case 'list': case 'menu': case 'help': case '?': {
@@ -2371,7 +2384,7 @@ break
 if (!q) return reply('contoh : #simi udah makan blom') 
 const simi = await fetchJson(`https://simsimi.info/api/?text=${q}&lc=id`)
 const sami = simi.success
-reply(sami) 
+m.reply(sami) 
 //sock.sendMessage(from, { text : sami },m) 
 break
             /*case 'menu':{
